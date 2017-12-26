@@ -102,6 +102,7 @@ public class SmartBarView extends BaseNavigationBar {
         sUris.add(Settings.Secure.getUriFor(Settings.Secure.SMARTBAR_LONGPRESS_DELAY));
         sUris.add(Settings.Secure.getUriFor(Settings.Secure.SMARTBAR_CUSTOM_ICON_SIZE));
         sUris.add(Settings.Secure.getUriFor(Settings.Secure.SMARTBAR_DOUBLETAP_SLEEP));
+        sUris.add(Settings.System.getUriFor(Settings.System.NAVBAR_DYNAMIC));
     }
 
     private SmartObservable mObservable = new SmartObservable() {
@@ -131,6 +132,8 @@ public class SmartBarView extends BaseNavigationBar {
                 reapplyDarkIntensity();
             } else if (uri.equals(Settings.Secure.getUriFor(Settings.Secure.SMARTBAR_DOUBLETAP_SLEEP))) {
                 updateNavDoubletapSetting();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.NAVBAR_DYNAMIC))) {
+                reapplyDarkIntensity();
             }
         }
     };
